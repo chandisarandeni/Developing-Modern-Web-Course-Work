@@ -92,40 +92,45 @@
         </header>
         <main>
             <!--skills section-->
-            <section class="skills py-5">
+            <section class="skills py-5" style="overflow-x: hidden;">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 skills-img">
+                        <!-- Left Images Section -->
+                        <div class="col-lg-6 col-md-12 position-relative skills-img">
                             <img src="images/map-2.png" class="img-fluid" alt="" id="map-1">
-                            <div class="woman-child">
+                            <div class="woman-child d-flex flex-column align-items-center">
                                 <img src="images/woman-2.png" class="img-fluid" alt="" id="woman-2">
                                 <img src="images/child-learn.jpg" class="img-fluid" alt="" id="child-learn">
                             </div>
-                            
                         </div>
+            
+                        <!-- Right Text Section -->
                         <div class="col-lg-6 col-md-12 position-relative skills-tcontainer">
                             <img src="images/map-1.png" class="img-fluid" id="map-2" alt="">
-                            <div class="skills-text position-absolute top-0 start-0 p-3">
+                            <div class="skills-text position-absolute p-3">
                                 <h5>Get to know us</h5>
-                                <h1>Grow your skills learn <br> with us from <br> anywhere</h1>
-                                <p class="mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. <br> Iure quibusdam suscipit natus inventore assumenda <br> exercitationem voluptatum ipsam</p>
+                                <h1>Grow your skills learn <br> with us from anywhere</h1>
+                                <p class="mt-3">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. <br> 
+                                    Iure quibusdam suscipit natus inventore assumenda <br> 
+                                    exercitationem voluptatum ipsam.
+                                </p>
                             </div>
                         </div>
-                        
-                        
                     </div>
                 </div>
             </section>
-
+            
+<!--timer section-->
             <section class="timer">
                 <div class="container-fluid">
                     <h4>Book your seat now</h4>
                     <h2>Upcoming study trip</h2>
                     <div class="row timer-circles">
-                        <div class="col-lg-3 pink-circle d-flex align-items-center justify-content-center">33</div>
-                        <div class="col-lg-3 orange-circle d-flex align-items-center justify-content-center">23</div>
-                        <div class="col-lg-3 purple-circle d-flex align-items-center justify-content-center">33</div>
-                        <div class="col-lg-3 blue-circle d-flex align-items-center justify-content-center">33</div>
+                        <div class="col-lg-3 pink-circle d-flex align-items-center justify-content-center" style="font-size: 30px; color: #fff;">33</div>
+                        <div class="col-lg-3 orange-circle d-flex align-items-center justify-content-center" style="font-size: 30px; color: #fff;">23</div>
+                        <div class="col-lg-3 purple-circle d-flex align-items-center justify-content-center" style="font-size: 30px; color: #fff;">33</div>
+                        <div class="col-lg-3 blue-circle d-flex align-items-center justify-content-center" style="font-size: 30px; color: #fff;">33</div>
                     </div>
                 </div>
             </section>
@@ -149,6 +154,7 @@
                     </div>
                 </div>
             </section>
+            <script src="script.js"></script>
         </main>
         <footer>
             <div class="container-fluid">
