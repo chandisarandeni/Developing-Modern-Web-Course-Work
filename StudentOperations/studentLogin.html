@@ -37,15 +37,21 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                 </div>
-                                <form class="user w-100">
+                                <form class="user w-100" method="post" action="studentLogin.php">
                                     <div class="form-group">
-                                        <input type="email" class="form-control w-100"
-                                            id="exampleInputEmail" aria-describedby="emailHelp"
-                                            placeholder="Enter Your Student Id">
+                                        <input  name="txt_Username"
+                                                type="text"
+                                                class="form-control w-100"
+                                                id="exampleInputEmail"
+                                                aria-describedby="emailHelp"
+                                                placeholder="Student Email">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control w-100"
-                                            id="exampleInputPassword" placeholder="Password">
+                                        <input  name="txt_Password"
+                                                type="password"
+                                                class="form-control w-100"
+                                                id="exampleInputPassword"
+                                                placeholder="Password">
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox small">
@@ -53,9 +59,9 @@
                                             <label class="custom-control-label" for="customCheck">Remember Me</label>
                                         </div>
                                     </div>
-                                    <a href="/StudentOperations/studentDashboard.html" class="btn btn-primary btn-user btn-block">
+                                    <button type="submit" class="btn btn-primary btn-user btn-block" name="btn_login">
                                         Login
-                                    </a>
+                                    </button>
                                     <hr>
                                 </form>
                                 <hr>
