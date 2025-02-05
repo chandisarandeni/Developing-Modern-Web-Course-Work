@@ -210,253 +210,290 @@
                         <h1 class="h3 mb-2 text-gray-800">Lecturers</h1>
 
                         <!-- DataTales Example -->
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Lecturer Data Table</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-6">
-                                                <div id="dataTable_filter" class="dataTables_filter">
-                                                    <label>Search:
-                                                        <input type="search" class="form-control form-control-sm"
-                                                            placeholder="" aria-controls="dataTable">
-                                                    </label>
-                                                    <button class="btn btn-outline-success"
-                                                        type="submit">Search</button>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6 d-flex justify-content-end">
-                                                <div id="dataTable_filter" class="dataTables_filter">
-                                                    <button type="button" class="btn btn-success mt-3"
-                                                        data-toggle="modal" data-target="#addModal">
-                                                        Add Lecturer
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <table class="table table-bordered dataTable" id="dataTable"
-                                                    width="100%" cellspacing="0" role="grid"
-                                                    aria-describedby="dataTable_info" style="width: 100%;">
-                                                    <thead>
-                                                        <tr role="row">
-                                                            <th>Lecturer ID</th>
-                                                            <th>Name</th>
-                                                            <th>Gender</th>
-                                                            <th>Email</th>
-                                                            <th>Contact</th>
-                                                            <th>Course</th>
-                                                            <th>Password</th>
-                                                            <th>Actions</th>
-                                                        </tr>
-                                                    </thead>
+                        <?php
+                        // Include the database connection settings
+                        include('config.php');
 
-                                                    <tbody>
-                                                        <?php
-                                                        // Check if the query returned any rows
-                                                        if ($result->num_rows > 0) {
-                                                            // Loop through the results and output the data in table rows
-                                                            while ($row = $result->fetch_assoc()) {
-                                                                echo "<tr>
-                                                                        <td>" . $row['lecturerID'] . "</td>
-                                                                        <td>" . $row['lecturerName'] . "</td>
-                                                                        <td>" . $row['lecturerGender'] . "</td>
-                                                                        <td>" . $row['lecturerEmail'] . "</td>
-                                                                        <td>" . $row['lecturerContact'] . "</td>
-                                                                        <td>" . $row['lecturerCourse'] . "</td>
-                                                                        <td>************</td>
-                                                                        <td>
-                                                                            <button class='btn btn-primary btn-sm' data-toggle='modal' data-target='#editModal'>Edit</button> 
-                                                                            <button class='btn btn-danger btn-sm'>Delete</button>
-                                                                        </td>
-                                                                    </tr>";
-                                                            }
-                                                        } else {
-                                                            echo "<tr><td colspan='8' class='text-center'>No data found</td></tr>";
-                                                        }
-                                                        ?>
-                                                    </tbody>
-                                                </table>
+                        // Create the SQL query to fetch lecturer data
+                        $sql = "SELECT * FROM Lecturer";
+                        $result = $conn->query($sql);
+                        ?>
+
+                        <!DOCTYPE html>
+                        <html lang="en">
+
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            <title>Lecturer Details</title>
+                            <!-- Bootstrap CSS for styling -->
+                            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+                                rel="stylesheet">
+                        </head>
+
+                        <body>
+
+                            <div class="container-fluid">
+
+                                <!-- Page Heading -->
+                                <h1 class="h3 mb-2 text-gray-800">Lecturers</h1>
+
+                                <!-- DataTales Example -->
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Lecturer Data Table</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-6">
+                                                        <div id="dataTable_filter" class="dataTables_filter">
+                                                            <label>Search:
+                                                                <input type="search"
+                                                                    class="form-control form-control-sm" placeholder=""
+                                                                    aria-controls="dataTable">
+                                                            </label>
+                                                            <button class="btn btn-outline-success"
+                                                                type="submit">Search</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-6 d-flex justify-content-end">
+                                                        <div id="dataTable_filter" class="dataTables_filter">
+                                                            <button type="button" class="btn btn-success mt-3"
+                                                                data-toggle="modal" data-target="#addModal">
+                                                                Add Lecturer
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <table class="table table-bordered dataTable" id="dataTable"
+                                                            width="100%" cellspacing="0" role="grid"
+                                                            aria-describedby="dataTable_info" style="width: 100%;">
+                                                            <thead>
+                                                                <tr role="row">
+                                                                    <th>Lecturer ID</th>
+                                                                    <th>Name</th>
+                                                                    <th>Gender</th>
+                                                                    <th>Email</th>
+                                                                    <th>Contact</th>
+                                                                    <th>Course</th>
+                                                                    <th>Password</th>
+                                                                    <th>Actions</th>
+                                                                </tr>
+                                                            </thead>
+
+                                                            <tbody>
+                                                                <?php
+                                                                // Check if the query returned any rows
+                                                                if ($result->num_rows > 0) {
+                                                                    // Loop through the results and output the data in table rows
+                                                                    while ($row = $result->fetch_assoc()) {
+                                                                        echo "<tr>
+                                                    <td>" . $row['lecturerID'] . "</td>
+                                                    <td>" . $row['lecturerName'] . "</td>
+                                                    <td>" . $row['lecturerGender'] . "</td>
+                                                    <td>" . $row['lecturerEmail'] . "</td>
+                                                    <td>" . $row['lecturerContact'] . "</td>
+                                                    <td>" . $row['lecturerCourse'] . "</td>
+                                                    <td>************</td>
+                                                    <td>
+                                                        <button class='btn btn-primary btn-sm' data-toggle='modal' data-target='#editModal'>Edit</button>
+                                                        <a href='deleteLecturer.php?id=" . $row['lecturerID'] . "' class='btn btn-danger btn-sm' onclick='return confirm(\"Are you sure you want to delete this lecturer?\")'>Delete</a>
+                                                    </td>
+                                                </tr>";
+                                                                    }
+                                                                } else {
+                                                                    echo "<tr><td colspan='8' class='text-center'>No data found</td></tr>";
+                                                                }
+                                                                ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <!-- Include Bootstrap JS and dependencies -->
-                    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                            <!-- Include Bootstrap JS and dependencies -->
+                            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                            <script
+                                src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+                            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-                </body>
+                        </body>
 
-                </html>
+                        </html>
 
-                <?php
-                // Close the database connection
-                $conn->close();
-                ?>
-
-
-                <!-- End of Topbar -->
-
-                <!-- Edit Modal -->
-                <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="editModalLabel">Edit Lecturer Details</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form id="editForm">
-                                    <div class="form-group">
-                                        <label for="editName">Name</label>
-                                        <input type="text" class="form-control" id="editName">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="editPosition">Position</label>
-                                        <input type="text" class="form-control" id="editPosition">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="editOffice">Office</label>
-                                        <input type="text" class="form-control" id="editOffice">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="editAge">Age</label>
-                                        <input type="number" class="form-control" id="editAge">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="editStart">Start Date</label>
-                                        <input type="date" class="form-control" id="editStart">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="editSalary">Salary</label>
-                                        <input type="text" class="form-control" id="editSalary">
-                                    </div>
-                                    <button type="button" class="btn btn-primary" id="saveChanges">Save Changes</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        <?php
+                        // Close the database connection
+                        $conn->close();
+                        ?>
 
 
-                <!-- add Modal -->
-                <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="editModalLabel">Add New Lecturer</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form id="editForm" method="POST" action="addLecturer.php">
-                                    <div class="form-group">
-                                        <label for="editName">Lecturer Name</label>
-                                        <input name="txt_lecturerName" type="text" class="form-control" id="editName"
-                                            required>
+
+                        <!-- End of Topbar -->
+
+                        <!-- Edit Modal -->
+                        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="editModalLabel">Edit Lecturer Details</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="editGender">Gender</label>
-                                        <select name="txt_lecturerGender" class="form-control" id="editGender" required>
-                                            <option value="">Select Gender</option>
-                                            <option value="Male">Male</option>
-                                            <option value="Female">Female</option>
-                                        </select>
+                                    <div class="modal-body">
+                                        <form id="editForm">
+                                            <div class="form-group">
+                                                <label for="editName">Name</label>
+                                                <input type="text" class="form-control" id="editName">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="editPosition">Position</label>
+                                                <input type="text" class="form-control" id="editPosition">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="editOffice">Office</label>
+                                                <input type="text" class="form-control" id="editOffice">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="editAge">Age</label>
+                                                <input type="number" class="form-control" id="editAge">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="editStart">Start Date</label>
+                                                <input type="date" class="form-control" id="editStart">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="editSalary">Salary</label>
+                                                <input type="text" class="form-control" id="editSalary">
+                                            </div>
+                                            <button type="button" class="btn btn-primary" id="saveChanges">Save
+                                                Changes</button>
+                                        </form>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="editEmail">Email</label>
-                                        <input name="txt_lecturerEmail" type="email" class="form-control" id="editEmail"
-                                            required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="editContact">Contact</label>
-                                        <input name="txt_lecturerContact" type="text" class="form-control"
-                                            id="editContact" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="editCourse">Course</label>
-                                        <input name="txt_lecturerCourse" type="text" class="form-control"
-                                            id="editCourse" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="editPassword">Password</label>
-                                        <input name="txt_lecturerPassword" type="password" class="form-control"
-                                            id="editPassword" required>
-                                    </div>
-                                    <button name="btn_RegisterLecturer" type="submit" class="btn btn-primary">Add
-                                        Lecturer</button>
-                                </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
 
-                <!-- End of Main Content -->
-
-                <!-- Footer -->
-                <footer class="sticky-footer bg-white">
-                    <div class="container my-auto">
-                        <div class="copyright text-center my-auto">
-                            <span>Copyright © Your Website 2020</span>
+                        <!-- add Modal -->
+                        <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="editModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="editModalLabel">Add New Lecturer</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="editForm" method="POST" action="addLecturer.php">
+                                            <div class="form-group">
+                                                <label for="editName">Lecturer Name</label>
+                                                <input name="txt_lecturerName" type="text" class="form-control"
+                                                    id="editName" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="editGender">Gender</label>
+                                                <select name="txt_lecturerGender" class="form-control" id="editGender"
+                                                    required>
+                                                    <option value="">Select Gender</option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="editEmail">Email</label>
+                                                <input name="txt_lecturerEmail" type="email" class="form-control"
+                                                    id="editEmail" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="editContact">Contact</label>
+                                                <input name="txt_lecturerContact" type="text" class="form-control"
+                                                    id="editContact" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="editCourse">Course</label>
+                                                <input name="txt_lecturerCourse" type="text" class="form-control"
+                                                    id="editCourse" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="editPassword">Password</label>
+                                                <input name="txt_lecturerPassword" type="password" class="form-control"
+                                                    id="editPassword" required>
+                                            </div>
+                                            <button name="btn_RegisterLecturer" type="submit"
+                                                class="btn btn-primary">Add
+                                                Lecturer</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
+
+                        <!-- End of Main Content -->
+
+                        <!-- Footer -->
+                        <footer class="sticky-footer bg-white">
+                            <div class="container my-auto">
+                                <div class="copyright text-center my-auto">
+                                    <span>Copyright © Your Website 2020</span>
+                                </div>
+                            </div>
+                        </footer>
+                        <!-- End of Footer -->
+
                     </div>
-                </footer>
-                <!-- End of Footer -->
+                    <!-- End of Content Wrapper -->
 
             </div>
-            <!-- End of Content Wrapper -->
+            <!-- End of Page Wrapper -->
 
-        </div>
-        <!-- End of Page Wrapper -->
+            <!-- Scroll to Top Button-->
+            <a class="scroll-to-top rounded" href="#page-top">
+                <i class="fas fa-angle-up"></i>
+            </a>
 
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-        </a>
-
-        <!-- Logout Modal-->
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="/AdminOperations/adminlogin.html">Logout</a>
+            <!-- Logout Modal-->
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">Select "Logout" below if you are ready to end your current session.
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                            <a class="btn btn-primary" href="/AdminOperations/adminlogin.html">Logout</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Bootstrap core JavaScript-->
-        <script src="/StudentOperations/JS/jquery.min.js"></script>
-        <script src="/StudentOperations/JS/bootstrap.bundle.min.js"></script>
+            <!-- Bootstrap core JavaScript-->
+            <script src="/StudentOperations/JS/jquery.min.js"></script>
+            <script src="/StudentOperations/JS/bootstrap.bundle.min.js"></script>
 
-        <!-- Core plugin JavaScript-->
-        <script src="/StudentOperations/JS/jquery.easing.min.js"></script>
+            <!-- Core plugin JavaScript-->
+            <script src="/StudentOperations/JS/jquery.easing.min.js"></script>
 
-        <!-- Custom scripts for all pages-->
-        <script src="/StudentOperations/JS/sb-admin-2.min.js"></script>
+            <!-- Custom scripts for all pages-->
+            <script src="/StudentOperations/JS/sb-admin-2.min.js"></script>
 
 
 </body>
