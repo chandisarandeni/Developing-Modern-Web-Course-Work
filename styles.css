@@ -16,6 +16,9 @@
     width: 184px;
     height: 30px;
 }
+#nav-login{
+    visibility: hidden;
+}
 .header{
     
     width: 100%;
@@ -380,6 +383,14 @@ footer{
 
     
     
+}
+@media (max-width: 991px) {
+    #login-btn {
+        display: none;
+    }
+    #nav-login{
+        visibility: visible;
+    }
 }
 @media (max-width: 996px) {
     .skills-img {
