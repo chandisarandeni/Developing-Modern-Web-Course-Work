@@ -170,13 +170,24 @@
     color: white;
     text-align: center;
 }
-.timer-circles{
-    margin-top: 5em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5em;
+.pink-label{
+    margin-top: 1em;
+    width: 166px;
 }
+.orange-label{
+    margin-top: 1em;
+    width: 166px;
+}
+.purple-label{
+    margin-top: 1em;
+    width: 166px;
+}
+.blue-label{
+    margin-top: 1em;
+    width: 166px;
+}
+
+
 .pink-circle{
     width: 166px;
     height: 166px;
