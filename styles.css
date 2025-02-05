@@ -30,7 +30,7 @@
 }
 .header-text{
     margin-top: 10em;
-    margin-left: 5em;
+    margin-left: 10em;
 }
 .header-img{
     width: 600px;
@@ -209,7 +209,7 @@
     height: 550px;
 }
 .certificate-text{
-    margin-top: 10em;
+    margin-top: 2em;
     z-index: 10;
 }
 #calculator-img{
@@ -298,6 +298,8 @@ footer{
 
 
 
+
+
 @media(max-width: 1164px){
     .blue-img,.pink-img,.orange-img,.bulb-img,.arrow-img,.dots-img{
         display: none;
@@ -319,6 +321,25 @@ footer{
         z-index: 999;
     }
 }
+@media(max-width: 1054px){
+    .certificate-text{
+        display: flex;
+        text-align: center;
+        align-items: center;
+        margin-top: 5em;
+        width: 100%;
+    }
+}
+@media(max-width: 996px){
+    .skills{
+        height: 1200px;
+    }
+}
+@media(max-width: 767px){
+    .header-img img{
+        opacity: 0.6;
+    }
+}
 @media(max-width: 575px){
     .header{
         height: 500px;
@@ -335,6 +356,7 @@ footer{
         display: flex;
         text-align: center;
         align-items: center;
+        margin-top: 10em;
     }
 
     .certificate{
