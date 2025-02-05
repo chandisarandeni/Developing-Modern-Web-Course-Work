@@ -56,20 +56,27 @@
                 Interface
             </div>
 
+            
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="student.html">
                     <i class='bx bxs-user'></i>
                     <span>Students</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="lecturer.html">
+                <a class="nav-link" href="/AdminOperations/lecturer.html">
                     <i class='bx bxs-chalkboard'></i>
                     <span>Lecturer</span>
                 </a>
             </li>
-            
+
+            <li class="nav-item">
+                <a class="nav-link" href="/AdminOperations/adminShedule.html">
+                    <i class='bx bxs-calendar' ></i>
+                    <span>Shedule</span>
+                </a>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
