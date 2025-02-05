@@ -356,56 +356,51 @@
     </div>
 </div>
 
-<!-- add Modal -->
+<!-- Add Modal -->
 <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Add New Student</h5>
+                <h5 class="modal-title">Add New Student</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="addForm">
+                <form id="addForm" action="addStudent.php" method="POST">
                     <div class="form-group">
-                        <label for="editName">Registration Id</label>
-                        <input type="text" class="form-control" id="editName"required>
+                        <label for="studentName">Full Name</label>
+                        <input name="txt_studentName" type="text" class="form-control" id="studentName" required>
                     </div>
                     <div class="form-group">
-                        <label for="editPosition">Full Name</label>
-                        <input type="text" class="form-control" id="editPosition"required>
-                    </div>
-                    <div class="form-group">
-                        <label for="editGender">Gender</label>
-                        <select class="form-control" id="editGender" required>
+                        <label for="studentGender">Gender</label>
+                        <select name="txt_studentGender" class="form-control" id="studentGender" required>
                             <option value="">Select Gender</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                         </select>
                     </div>
-                    
                     <div class="form-group">
-                        <label for="editAge">Email</label>
-                        <input type="email" class="form-control" id="editAge"required>
+                        <label for="studentEmail">Email</label>
+                        <input name="txt_studentEmail" type="email" class="form-control" id="studentEmail" required>
                     </div>
                     <div class="form-group">
-                        <label for="editStart">Registration Date</label>
-                        <input type="date" class="form-control" id="editStart"required>
+                        <label for="registerDate">Registration Date</label>
+                        <input name="txt_studentRegisterDate" type="date" class="form-control" id="registerDate" required>
                     </div>
                     <div class="form-group">
-                        <label for="editSalary">Address</label>
-                        <input type="text" class="form-control" id="editSalary"required>
+                        <label for="studentAddress">Address</label>
+                        <input name="txt_studentAddress" type="text" class="form-control" id="studentAddress" required>
                     </div>
                     <div class="form-group">
-                        <label for="editAge">Tel</label>
-                        <input type="tel" class="form-control" id="editAge"required>
+                        <label for="studentTelephone">Tel</label>
+                        <input name="txt_studentTelephone" type="tel" class="form-control" id="studentTelephone" required>
                     </div>
                     <div class="form-group">
-                        <label for="editPassword">Password</label>
-                        <input type="password" class="form-control" id="editAge"required>
+                        <label for="studentPassword">Password</label>
+                        <input name="txt_studentPassword" type="password" class="form-control" id="studentPassword" required>
                     </div>
-                    <button type="submit" class="btn btn-primary" id="saveChanges">Add</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
                 </form>
             </div>
         </div>
