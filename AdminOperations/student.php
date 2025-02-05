@@ -188,85 +188,82 @@
 
                     <!-- DataTales Example -->
                     <?php
-// Include the database connection settings
-include('config.php');
+                // Include the database connection settings
+                include('config.php');
 
-// Create the SQL query to fetch student data
-$sql = "SELECT * FROM Student";
-$result = $conn->query($sql);
-?>
+                // Create the SQL query to fetch student data
+                $sql = "SELECT * FROM Student";
+                $result = $conn->query($sql);
+                ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Details</title>
-    <!-- Bootstrap CSS for styling -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Student Details</title>
+                    <!-- Bootstrap CSS for styling -->
+                    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+                </head>
+                <body>
 
-<div class="container mt-4">
-    <h2 class="text-center">Student Details</h2>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Student ID</th>
-                <th>Name</th>
-                <th>Gender</th>
-                <th>Email</th>
-                <th>Registration Date</th>
-                <th>Address</th>
-                <th>Telephone</th>
-                <th>Password</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            // Check if the query returned any rows
-            if ($result->num_rows > 0) {
-                // Loop through the results and output the data in table rows
-                while($row = $result->fetch_assoc()) {
-                    echo "<tr>
-                            <td>" . $row['studentID'] . "</td>
-                            <td>" . $row['studentName'] . "</td>
-                            <td>" . $row['studentGender'] . "</td>
-                            <td>" . $row['studentEmail'] . "</td>
-                            <td>" . $row['registrationDate'] . "</td>
-                            <td>" . $row['studentAddress'] . "</td>
-                            <td>" . $row['studentTelephone'] . "</td>
-                            <td>************</td>
-                            <td>
-                                <button class='btn btn-primary btn-sm' data-toggle='modal' data-target='#editModal'>Edit</button> 
-                                <button class='btn btn-danger btn-sm'>Delete</button>
-                            </td>
-                          </tr>";
-                }
-            } else {
-                echo "<tr><td colspan='9' class='text-center'>No data found</td></tr>";
-            }
-            ?>
-        </tbody>
-    </table>
-</div>
+                <div class="container mt-4">
+                    <h2 class="text-center">Student Details</h2>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Student ID</th>
+                                <th>Name</th>
+                                <th>Gender</th>
+                                <th>Email</th>
+                                <th>Registration Date</th>
+                                <th>Address</th>
+                                <th>Telephone</th>
+                                <th>Password</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            // Check if the query returned any rows
+                            if ($result->num_rows > 0) {
+                                // Loop through the results and output the data in table rows
+                                while($row = $result->fetch_assoc()) {
+                                    echo "<tr>
+                                            <td>" . $row['studentID'] . "</td>
+                                            <td>" . $row['studentName'] . "</td>
+                                            <td>" . $row['studentGender'] . "</td>
+                                            <td>" . $row['studentEmail'] . "</td>
+                                            <td>" . $row['registrationDate'] . "</td>
+                                            <td>" . $row['studentAddress'] . "</td>
+                                            <td>" . $row['studentTelephone'] . "</td>
+                                            <td>************</td>
+                                            <td>
+                                                <button class='btn btn-primary btn-sm' data-toggle='modal' data-target='#editModal'>Edit</button> 
+                                                <button class='btn btn-danger btn-sm'>Delete</button>
+                                            </td>
+                                        </tr>";
+                                }
+                            } else {
+                                echo "<tr><td colspan='9' class='text-center'>No data found</td></tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
 
-<!-- Include Bootstrap JS and dependencies -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                <!-- Include Bootstrap JS and dependencies -->
+                <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-</body>
-</html>
+                </body>
+                </html>
 
-<?php
-// Close the database connection
-$conn->close();
-?>
-
-
-                        
+                <?php
+                // Close the database connection
+                $conn->close();
+                ?>  
                 <!-- End of Topbar -->
 
             <!-- Edit Modal -->
