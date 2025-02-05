@@ -180,95 +180,84 @@
                 
 
                     <!-- DataTales Example -->
-                    <div class="container-fluid">
+                    <?php
+// Include the database connection settings
+include('config.php');
 
-                        <!-- Page Heading -->
-                        <h1 class="h3 mb-2 text-gray-800">Students</h1>
-    
-                        <!-- DataTales Example -->
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Student Data Table</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-6">
-                                                <div id="dataTable_filter" class="dataTables_filter">
-                                                    <label>Search:
-                                                        <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="dataTable">
-                                                    </label>
-                                                    <button class="btn btn-outline-success" type="submit">Search</button>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6 d-flex justify-content-end">
-                                                <div id="dataTable_filter" class="dataTables_filter">
-                                                    <button type="button" class="btn btn-success mt-3" data-toggle="modal" data-target="#addModal">
-                                                        Add Student
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                                                    <thead>
-                                                        <tr role="row">
-                                                            <th>Registration Id</th>
-                                                            <th>Full Name</th>
-                                                            <th>Gender</th>
-                                                            <th>Email</th>
-                                                            <th>Registration date</th>
-                                                            <th>Address</th>
-                                                            <th>Tel</th>
-                                                            <th>Password</th>
-                                                            <th>Manage</th>
-                                                        </tr>
-                                                    </thead>
-                                                    
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>s001</td>
-                                                            <td>shiran lakshitha</td>
-                                                            <td>Male</td>
-                                                            <td>test@gmail.com</td>
-                                                            <td>2008/11/28</td>
-                                                            <td>borella,Colombo</td>
-                                                            <th>089657431</th>
-                                                            <th>****************</th>
-                                                            <td><button class="btn btn-primary btn-sm " data-toggle="modal" data-target="#editModal">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>s001</td>
-                                                            <td>shiran lakshitha</td>
-                                                            <td>Male</td>
-                                                            <td>test@gmail.com</td>
-                                                            <td>2008/11/28</td>
-                                                            <td>borella,Colombo</td>
-                                                            <th>089657431</th>
-                                                            <th>****************</th>
-                                                            <td><button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editModal">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>s001</td>
-                                                            <td>shiran lakshitha</td>
-                                                            <td>Male</td>
-                                                            <td>test@gmail.com</td>
-                                                            <td>2008/11/28</td>
-                                                            <td>borella,Colombo</td>
-                                                            <th>089657431</th>
-                                                            <th>****************</th>
-                                                            <td><button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editModal">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+// Create the SQL query to fetch student data
+$sql = "SELECT * FROM Student";
+$result = $conn->query($sql);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <!-- Bootstrap CSS for styling -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-4">
+    <h2 class="text-center">Student Details</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th>Registration Date</th>
+                <th>Address</th>
+                <th>Telephone</th>
+                <th>Password</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            // Check if the query returned any rows
+            if ($result->num_rows > 0) {
+                // Loop through the results and output the data in table rows
+                while($row = $result->fetch_assoc()) {
+                    echo "<tr>
+                            <td>" . $row['studentID'] . "</td>
+                            <td>" . $row['studentName'] . "</td>
+                            <td>" . $row['studentGender'] . "</td>
+                            <td>" . $row['studentEmail'] . "</td>
+                            <td>" . $row['registrationDate'] . "</td>
+                            <td>" . $row['studentAddress'] . "</td>
+                            <td>" . $row['studentTelephone'] . "</td>
+                            <td>************</td>
+                            <td>
+                                <button class='btn btn-primary btn-sm' data-toggle='modal' data-target='#editModal'>Edit</button> 
+                                <button class='btn btn-danger btn-sm'>Delete</button>
+                            </td>
+                          </tr>";
+                }
+            } else {
+                echo "<tr><td colspan='9' class='text-center'>No data found</td></tr>";
+            }
+            ?>
+        </tbody>
+    </table>
+</div>
+
+<!-- Include Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+<?php
+// Close the database connection
+$conn->close();
+?>
+
 
                         
                 <!-- End of Topbar -->
