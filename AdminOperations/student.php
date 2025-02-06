@@ -58,14 +58,14 @@
 
             
             <li class="nav-item">
-                <a class="nav-link" href="student.html">
+                <a class="nav-link" href="student.php">
                     <i class='bx bxs-user'></i>
                     <span>Students</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/AdminOperations/lecturer.html">
+                <a class="nav-link" href="/AdminOperations/lecturer.php">
                     <i class='bx bxs-chalkboard'></i>
                     <span>Lecturer</span>
                 </a>
