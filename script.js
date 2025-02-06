@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const timerInterval = setInterval(updateTimer, 1000);
     }
 
-    const targetDate = new Date("2025-12-31T23:59:59").getTime(); // Set your target date here
+    const targetDate = new Date("2025-03-31T23:59:59").getTime(); // Set your target date here
     startCountdown(targetDate);
 });
 
