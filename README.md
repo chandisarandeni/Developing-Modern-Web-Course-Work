@@ -46,10 +46,4 @@ Website Link: [http://sarasavi.infy.uk/](http://sarasavi.infy.uk/)
 - **Username:** `student@gmail.com`
 - **Password:** `123`
 
-## Usage
-
-- Open the [Student Management System](http://sarasavi.infy.uk/) to start using the application.
-- Add, update, or delete student records via the provided user interface.
-
-
 ##
