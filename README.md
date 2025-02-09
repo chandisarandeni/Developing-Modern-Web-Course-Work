@@ -1,5 +1,3 @@
-Here's the updated README with admin and student credentials:
-
 ---
 
 # Student Management System
